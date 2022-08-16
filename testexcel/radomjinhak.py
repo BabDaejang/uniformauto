@@ -7,7 +7,7 @@
 
 ### https://www.datasciencemadesimple.com/generate-random-number-in-pandas-python-2/ 이 방법으로 랜덤하게 만들자
 
-import numpy as np
+# import numpy as np ## 일단 넘파이는 안쓰니까 뺀다
 import pandas as pd
 import random
 
@@ -64,6 +64,8 @@ BeforeSchool = [] # 원적교 리스트를 만들어주자
 for i in range(len(bunho)):  # for 문을 통해 함수를 bunho의 갯수만큼 반복하자.
     BeforeSchool.append(random.choice(MschoolSource)) ## 따로 변수 지정을 안하고 append()함수를 바로 썼다// 잘 작동한다
 
+# 같은 방법으로 진학교를 만들어주자
+
 HschoolSource = ['다정고','도담고','두루고','반곡고','보람고','새롬고','세종고','세과영',
 '국제고','대성고','세여고','예술고','장영실','하이텍','소담고'] # 진학교 소스다
 PromoSchool = [] # 진학교 리스트를 만들어주자
@@ -71,9 +73,30 @@ PromoSchool = [] # 진학교 리스트를 만들어주자
 for i in range(len(bunho)):  # for 문을 통해 함수를 bunho의 갯수만큼 반복하자.
     PromoSchool.append(random.choice(HschoolSource)) ## 따로 변수 지정을 안하고 append()함수를 바로 썼다// 잘 작동한다
 
-print(BeforeSchool, PromoSchool) # 위처럼 코드를 2줄로 줄여도 작동하는지 테스트
+# 이제 전화번호를 만들자 전화번호 만드는 건 쉽다.
+phonenumber = [] #전화번호를 입력하기 위한 리스트.. 역시 for 문을 활용하여 랜덤하게 만들자
 
-  
+for i in range(len(bunho)):  # for 문을 통해 함수를 bunho의 갯수만큼 반복하자.
+    r = str(random.random()) [2:6]
+    j = str(random.random()) [2:6]
+    rj = "010-"+r+"-"+j
+    phonenumber.append(rj) ## 이제 폰넘버 리스트에 bunho 갯수만큼의 전화번호가 저장되었다.
+
+## 이제 phnenumber, PromoSchool, BeforeSchool, namelist, bunho 까지 다 만들어졌다.
+## pandas 를 활용하여 2차원 데이터프레임으로 만들고, 이걸 엑셀로 익스포트 시키겠다.
+
+jinhakdata = pd.DataFrame() # jinhakdate 라는 데이타프레임을 만들자
+jinhakdata['이름'] = namelist
+jinhakdata['학번'] = bunho
+jinhakdata['전적교'] = BeforeSchool
+jinhakdata['진학교'] = PromoSchool
+jinhakdata['전화번호'] = phonenumber
+
+# 이제 to_excel() 함수를 통해 만들어진 jinhakdata 를 엑셀로 저장하겠다.
+excelname = 'jinhak.xlsx'
+jinhakdata.to_excel(excelname)
+
+## 성!! 공!! 축!! 하!! 제대로 된 첫 번째 프로젝트의 첫 발을 성공하였다!!!
 
 
 
