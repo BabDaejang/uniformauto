@@ -97,6 +97,3 @@ excelname = 'jinhak.xlsx'
 jinhakdata.to_excel(excelname)
 
 ## 성!! 공!! 축!! 하!! 제대로 된 첫 번째 프로젝트의 첫 발을 성공하였다!!!
-
-
-
