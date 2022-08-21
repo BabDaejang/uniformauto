@@ -1,0 +1,29 @@
+<div class="btn-group">
+    <a href="#" class = "btn btn-info">Add aduploadapp</a> <!--Add Bookmark를 딴걸로 바꿔야 할 수도. Add aduploadapp??-->
+</div>
+<p></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Site</th>
+            <th scope="col">URL</th>
+            <th scope="col">Modify</th>
+            <th scope="col">Delete</th> <!-- 이게 뭔소리여 시방-->
+        </tr>
+    </thead>
+    <tbody>
+        {% for aduploadapp in object_list %} <!-- bookmark 라고 하는 걸 aduploadapp으로 바꿔봄-->
+        <!-- 규칙: queryset 일 경우 object_list, 1개인 경우 object 란다-->
+        <tr>
+            <td>{{ forloop.counter }}</td> <!-- 넘버? number??-->
+            <td><a href="#">{{ aduplaodapp.site_name }}</a></td>
+            <!-- aduploadapp 모델 인스턴스. 필드(컬럼)이름-->
+            <td><a href="{{ adupload.site_name }}" target="_blank">{{ aduploadapp.url }}</a></td>
+            <td><a href="#" class="bnt btn-success btn-sm">Modify</a></td>
+            <td><a href="#" class="bnt btn-danger btn-sm">Delete</a></td>
+            <!-- 뭔소린지 모르겠지만 일단 https://goodthings4me.tistory.com/505 이거보고 따라함-->
+            <!-- 위 사이트를 보니 데이터 추가 Add 버튼 삭제 Delte버튼 수정 Modify 버튼을 만든 거 같다-->
+        </tr>
+    </tbody>
+</table>

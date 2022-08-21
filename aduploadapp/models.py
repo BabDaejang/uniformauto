@@ -7,3 +7,13 @@ from django.db import models
 #     link = models.URLField(max_length=200)
 #     new_link = models.URLField(default="")
 
+from django.db import models
+
+class Aduploadapp(models.Model):
+    site_name = models.CharField(max_length=200)
+    url = models.URLField(verbose_name='Site URL') #Site URL 이 뭐지?
+
+    #모델의 클래스 인스턴스 생성시 __str__ 로 출력되도록 해본다... 왜지?
+    def __str__(self):
+        return '클래스 인스턴스 이름: ' + self.site_name + ', 주소(URL) : ' + self.url
+    
