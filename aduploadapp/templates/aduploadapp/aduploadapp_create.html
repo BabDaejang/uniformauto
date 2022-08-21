@@ -4,6 +4,7 @@
 <from action="" method="post"
 {% csrf_token %}
 {{ form.as_p }}  </from></from> <!--입력, 수정 뷰의 경우 장고에서 자동으로 form을 만들어 출력-->
+<!-- form.as_p 는 p태크를 자동으로 삽입해준다고 한다. 뭐 줄바꿈 같은건가?-->
 <input type="submit" value="Add" class"btn btn-info btn-sm">
 </form>
 
