@@ -1,0 +1,9 @@
+<!-- django 에서는 action 속성을 비워두는 경우가 많음-->
+<!-- 입력을 받거나 입력을 처리하는 것을 같은 뷰에서 처리하며, 비워 둔 경우 자기 자신을 의미함.-->
+
+<from action="" method="post"
+{% csrf_token %}
+{{ form.as_p }}  </from></from> <!--입력, 수정 뷰의 경우 장고에서 자동으로 form을 만들어 출력-->
+<input type="submit" value="Add" class"btn btn-info btn-sm">
+</form>
+
