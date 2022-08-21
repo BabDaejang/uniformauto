@@ -11,7 +11,7 @@ from django.db import models
 
 class Aduploadapp(models.Model):
     site_name = models.CharField(max_length=200)
-    url = models.URLField(verbose_name='Site URL') #Site URL 이 뭐지?
+    url = models.URLField(verbose_name='Site URL') #Site URL 이 뭐지? .. 아 별병을 설정함. 이걸로 보인다.
 
     #모델의 클래스 인스턴스 생성시 __str__ 로 출력되도록 해본다... 왜지?
     def __str__(self):
