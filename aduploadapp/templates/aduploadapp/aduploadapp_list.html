@@ -19,13 +19,20 @@
         <!-- 규칙: queryset 일 경우 object_list, 1개인 경우 object 란다-->
         <tr>
             <td>{{ forloop.counter }}</td> <!-- 넘버? number??-->
-            <td><a href="#">{{ aduplaodapp.site_name }}</a></td>
-            <!-- aduploadapp 모델 인스턴스. 필드(컬럼)이름-->
+            <td><a href="{% url 'detail' pk=aduploadapp.id %}"> {{ aduplaodapp.site_name }}</a></td>
+            <!-- aduploadapp 모델 인스턴스. 필드(컬럼) 명-->
             <td><a href="{{ adupload.site_name }}" target="_blank">{{ aduploadapp.url }}</a></td>
-            <td><a href="#" class="bnt btn-success btn-sm">Modify</a></td>
-            <td><a href="#" class="bnt btn-danger btn-sm">Delete</a></td>
+            <td><a href="{% url 'update' pk=aduploadapp.id %}" class="bnt btn-success btn-sm">Modify</a></td>
+            <!-- 방금전에 views.py 에서 작업을 했다... update 도 만들고, delete 도 만들고... 이거 관련된 내용을
+            html 템플릿에서 보일 수 있도록 하는 것이다-->
+            <td><a href="{% url 'delete' pk=aduploadapp.id %}" class="bnt btn-danger btn-sm">Delete</a></td>
+            <!-- 그렇다 views.py 에서 위의 해당하는 내용들을 작업하였다. 그래서 views.py 가 구현해야 하는
+            템플릿을 여기 templates/aduploadapp/aduploadapp_list.html 에서 구현시킨 것이다 -->
             <!-- 뭔소린지 모르겠지만 일단 https://goodthings4me.tistory.com/505 이거보고 따라함-->
             <!-- 위 사이트를 보니 데이터 추가 Add 버튼 삭제 Delte버튼 수정 Modify 버튼을 만든 거 같다-->
+            <!-- 인줄 알았으나, 좀 더 사이트 파보니 urls.py 에서 views.py 를 거쳐 html 을 만들고 list.html 에서 해당
+            항목으로 갈 수 있는 링크를 만드는 작업이었다.-->
+
         </tr> 
         {% endfor %}
     </tbody>
