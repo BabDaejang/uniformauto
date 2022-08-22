@@ -1,4 +1,10 @@
+<!-- 역시 마찬가지로 base.html 과 같은 공통점을 넣고 detail에 해당하는 것만 띄워준다-->
+{% extend 'base.html' %}
+{% block title %} <!-- % block 타이틀 % 함수로 타이틀 블록을 잡는다--> aduploadapp Detail {% endblock %}
+<!-- % endblock % 함수로 % block %을 닫는다-->
+{% block content %}
 <body>
     {{ object.site_name}}<br> <!-- 한 개의 object 인 경우-->
     {{ object.url }} <!-- list.html 의 site_name 항목에 a href link 를 연결하러 가자-->
 </body>
+{% endblock %}

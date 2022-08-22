@@ -1,3 +1,9 @@
+<!-- 프로젝트루트/templates/base.html 을 적용시킨다-->
+{% extends 'base.html' %}
+{% block title %} Aduploadapp List {% endblock %}
+{% block content %}
+
+
 <div class="btn-group">
     <a href="{% url 'add' %}" class = "btn btn-info">Add aduploadapp</a> <!--Add Bookmark를 딴걸로 바꿔야 할 수도. Add aduploadapp??-->
 </div>
@@ -37,3 +43,4 @@
         {% endfor %}
     </tbody>
 </table>
+{% endblock %} <!-- endblock 함수를 넣었따 위에 {% block content %}이게 있었기 때문이다-->

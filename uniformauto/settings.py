@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,11 +54,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'uniformauto.urls'
 
+# 프로젝트 루트에 templates 폴더를 만들고 base.html 을 만듬
+# 그래서 TEMPLATES 에 해당 항목을 추가/수정 한다
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], #여기 DIRS를 수정한다. os.path.join()함수를 사용한다
+        # os가 없다면 임포트 시킨다
+        'APP_DIRS': True, # 이 코드를 통해 앱 하위에 있는 templates 폴더를 자동으로 찾게 된다
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -123,3 +127,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
