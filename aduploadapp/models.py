@@ -8,6 +8,7 @@ from django.db import models
 #     new_link = models.URLField(default="")
 
 from django.db import models
+from django.urls import reverse # models 에서는 reverse, class 안에서는 reverse_lazy를 사용한단다
 
 class Aduploadapp(models.Model):
     site_name = models.CharField(max_length=200)
