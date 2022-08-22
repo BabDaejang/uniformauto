@@ -15,5 +15,9 @@ class Aduploadapp(models.Model):
 
     #모델의 클래스 인스턴스 생성시 __str__ 로 출력되도록 해본다... 왜지?
     def __str__(self):
-        return '클래스 인스턴스 이름: ' + self.site_name + ', 주소(URL) : ' + self.url
-    
+        return '클래스 인스턴스 이름: ' + self.site_name + ', 주소(URL) : ' + self.url    
+    # 자 이제 update 관련된 모델을 만들어야 한다. get_absolute_url() 함수로 어떻게든 진행되게 만든다
+
+    def get_abolute_url(self):
+        return reverse('detail', kwargs={'pk':self.id})
+        #뭔소린지 모르겠지만, args = [str(self.id)] or kwargs = {'pk':self.id} 란뜻이다

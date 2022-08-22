@@ -1,8 +1,8 @@
 <!-- 프로젝트루트/templates/base.html 을 적용시킨다-->
-{% extends 'base.html' %}
+{% extends 'base.html' %}  <!-- % extend 가 아니라 extends 함수였다-->
 {% block title %} Aduploadapp List {% endblock %}
-{% block content %}
 
+{% block content %}
 
 <div class="btn-group">
     <a href="{% url 'add' %}" class = "btn btn-info">Add aduploadapp</a> <!--Add Bookmark를 딴걸로 바꿔야 할 수도. Add aduploadapp??-->
@@ -29,18 +29,21 @@
             <!-- aduploadapp 모델 인스턴스. 필드(컬럼) 명-->
             <td><a href="{{ adupload.site_name }}" target="_blank">{{ aduploadapp.url }}</a></td>
             <td><a href="{% url 'update' pk=aduploadapp.id %}" class="bnt btn-success btn-sm">Modify</a></td>
+            <!-- error!! % url 'aduploadapp' 에서 not found 라고 나왔다. is not a vaild view function or pattern name-->
             <!-- 방금전에 views.py 에서 작업을 했다... update 도 만들고, delete 도 만들고... 이거 관련된 내용을
             html 템플릿에서 보일 수 있도록 하는 것이다-->
             <td><a href="{% url 'delete' pk=aduploadapp.id %}" class="bnt btn-danger btn-sm">Delete</a></td>
-            <!-- 그렇다 views.py 에서 위의 해당하는 내용들을 작업하였다. 그래서 views.py 가 구현해야 하는
+            <!-- (0823) 그렇다 views.py 와 ulrs.py 에 필요한 내용들이 잘 들어가야 작동하는 것이다. delete는 아직 구현 되지 않았다-->
+            <!-- (과거)그렇다 views.py 에서 위의 해당하는 내용들을 작업하였다. 그래서 views.py 가 구현해야 하는
             템플릿을 여기 templates/aduploadapp/aduploadapp_list.html 에서 구현시킨 것이다 -->
-            <!-- 뭔소린지 모르겠지만 일단 https://goodthings4me.tistory.com/505 이거보고 따라함-->
-            <!-- 위 사이트를 보니 데이터 추가 Add 버튼 삭제 Delte버튼 수정 Modify 버튼을 만든 거 같다-->
-            <!-- 인줄 알았으나, 좀 더 사이트 파보니 urls.py 에서 views.py 를 거쳐 html 을 만들고 list.html 에서 해당
+            <!-- (처음)뭔소린지 모르겠지만 일단 https://goodthings4me.tistory.com/505 이거보고 따라함-->
+            <!-- (과거)위 사이트를 보니 데이터 추가 Add 버튼 삭제 Delte버튼 수정 Modify 버튼을 만든 거 같다-->
+            <!-- (과거)인줄 알았으나, 좀 더 사이트 파보니 urls.py 에서 views.py 를 거쳐 html 을 만들고 list.html 에서 해당
             항목으로 갈 수 있는 링크를 만드는 작업이었다.-->
 
         </tr> 
         {% endfor %}
     </tbody>
 </table>
-{% endblock %} <!-- endblock 함수를 넣었따 위에 {% block content %}이게 있었기 때문이다-->
+{% endblock %} 
+<!--endblock 함수를 넣었따 위에 % block content %이게 있었기 때문이다-->
